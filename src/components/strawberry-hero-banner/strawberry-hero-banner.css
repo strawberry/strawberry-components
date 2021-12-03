@@ -1,0 +1,25 @@
+:host {
+  --strawberry-justify: center;
+  --strawberry-align: center;
+  display: flex;
+}
+
+:host .container {
+  background: green;
+  display: flex;
+  align-items: var(--strawberry-align);
+  position: relative;
+}
+
+:host .container img {
+  width: 100vw;
+  object-fit: contain;
+}
+
+:host .container p {
+  position: absolute;
+  color: white;
+  z-index: 100;
+  font-size: 10rem;
+  background: yellow;
+}
