@@ -15,24 +15,42 @@ export class SCHeroBanner {
   /**
    * Vertical position.
    */
-  @Prop() verticalPosition: string;
+  @Prop() verticalPosition: string = 'top';
 
   /**
    * Horizontal position.
    */
-  @Prop() horizontalPosition: string;
+  @Prop() horizontalPosition: string = 'left';
 
+  /**
+   * Optional text colour.
+   */
   @Prop() textColour?: string;
 
+  /**
+   * Optional background colour.
+   */
   @Prop() backgroundColour?: string;
 
+  /**
+   * Optional font size..
+   */
   @Prop() fontSize?: string;
 
+  /**
+   * Optional Heading level.
+   */
   @Prop() headingLevel?: number;
 
+  /**
+   * Optional Spacing.
+   */
   @Prop() spacing?: string;
 
-  @Prop() textAlign?: string;
+  /**
+   * Optional text align.
+   */
+  @Prop() textAlign?: string = 'left';
 
   properties = {
     justify: '--sc-hero-banner-justify',

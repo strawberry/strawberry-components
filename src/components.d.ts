@@ -21,19 +21,37 @@ export namespace Components {
         "middle": string;
     }
     interface ScHeroBanner {
+        /**
+          * Optional background colour.
+         */
         "backgroundColour"?: string;
+        /**
+          * Optional font size..
+         */
         "fontSize"?: string;
+        /**
+          * Optional Heading level.
+         */
         "headingLevel"?: number;
         /**
           * Horizontal position.
          */
         "horizontalPosition": string;
+        /**
+          * Optional Spacing.
+         */
         "spacing"?: string;
         /**
           * Hero text.
          */
         "text": string;
+        /**
+          * Optional text align.
+         */
         "textAlign"?: string;
+        /**
+          * Optional text colour.
+         */
         "textColour"?: string;
         /**
           * Vertical position.
@@ -75,19 +93,37 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface ScHeroBanner {
+        /**
+          * Optional background colour.
+         */
         "backgroundColour"?: string;
+        /**
+          * Optional font size..
+         */
         "fontSize"?: string;
+        /**
+          * Optional Heading level.
+         */
         "headingLevel"?: number;
         /**
           * Horizontal position.
          */
         "horizontalPosition"?: string;
+        /**
+          * Optional Spacing.
+         */
         "spacing"?: string;
         /**
           * Hero text.
          */
         "text"?: string;
+        /**
+          * Optional text align.
+         */
         "textAlign"?: string;
+        /**
+          * Optional text colour.
+         */
         "textColour"?: string;
         /**
           * Vertical position.
