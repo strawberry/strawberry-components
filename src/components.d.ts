@@ -28,20 +28,12 @@ export namespace Components {
           * Horizontal position.
          */
         "horizontalPosition": string;
-        /**
-          * Image src.
-         */
-        "image": string;
-        /**
-          * Image Alt Text.
-         */
-        "imageAlt": string;
-        "padding"?: string;
         "spacing"?: string;
         /**
           * Hero text.
          */
         "text": string;
+        "textAlign"?: string;
         "textColour"?: string;
         /**
           * Vertical position.
@@ -90,20 +82,12 @@ declare namespace LocalJSX {
           * Horizontal position.
          */
         "horizontalPosition"?: string;
-        /**
-          * Image src.
-         */
-        "image"?: string;
-        /**
-          * Image Alt Text.
-         */
-        "imageAlt"?: string;
-        "padding"?: string;
         "spacing"?: string;
         /**
           * Hero text.
          */
         "text"?: string;
+        "textAlign"?: string;
         "textColour"?: string;
         /**
           * Vertical position.

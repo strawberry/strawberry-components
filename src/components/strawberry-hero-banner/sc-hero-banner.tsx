@@ -8,16 +8,6 @@ import { Component, Prop, h, Element, Host } from '@stencil/core';
 export class SCHeroBanner {
   @Element() el: HTMLElement;
   /**
-   * Image src.
-   */
-  @Prop() image: string;
-
-  /**
-   * Image Alt Text.
-   */
-  @Prop() imageAlt: string;
-
-  /**
    * Hero text.
    */
   @Prop() text: string;
@@ -26,6 +16,7 @@ export class SCHeroBanner {
    * Vertical position.
    */
   @Prop() verticalPosition: string;
+
   /**
    * Horizontal position.
    */
@@ -41,24 +32,48 @@ export class SCHeroBanner {
 
   @Prop() spacing?: string;
 
-  @Prop() padding?: string;
+  @Prop() textAlign?: string;
+
+  properties = {
+    justify: '--sc-hero-banner-justify',
+    align: '--sc-hero-banner-align',
+    colour: '--sc-hero-banner-colour',
+    background: '--sc-hero-banner-background',
+    fontSize: '--sc-hero-banner-font-size',
+    spacing: '--sc-hero-banner-spacing',
+    textAlign: '--sc-hero-banner-text-align'
+  }
+
+  flexProperties = {
+    start: 'flex-start',
+    center: 'center',
+    end: 'flex-end'
+  }
+
+  positionValue = {
+    top: 'top',
+    middle: 'middle',
+    bottom: 'bottom',
+    left: 'left',
+    right: 'right'
+  }
 
   private setPosition(prop, cssProperty, alignment: string[]) {
     switch (prop) {
       case alignment[0]:
-        this.el.style.setProperty(cssProperty, 'flex-start');
+        this.el.style.setProperty(cssProperty, this.flexProperties.start);
         break;
       case alignment[1]:
-        this.el.style.setProperty(cssProperty, 'center');
+        this.el.style.setProperty(cssProperty, this.flexProperties.center);
         break;
       case alignment[2]:
-        this.el.style.setProperty(cssProperty, 'flex-end');
+        this.el.style.setProperty(cssProperty, this.flexProperties.end);
         break;
     }
   }
 
   private setBaseStyle() {
-    const styleProps = [this.textColour, this.backgroundColour, this.fontSize, this.spacing];
+    const styleProps = [this.textColour, this.backgroundColour, this.fontSize, this.spacing, this.textAlign];
 
     styleProps.forEach(property => {
       if(!property) {
@@ -67,25 +82,33 @@ export class SCHeroBanner {
 
       switch(property) {
         case this.textColour:
-          this.el.style.setProperty('--strawberry-colour', property);
+          this.el.style.setProperty(this.properties.colour, property);
         break;
 
         case this.backgroundColour:
-          this.el.style.setProperty('--strawberry-background', property);
+          this.el.style.setProperty(this.properties.background, property);
         break;
 
         case this.fontSize:
-          this.el.style.setProperty('--strawberry-font-size', property);
+          this.el.style.setProperty(this.properties.fontSize, `${property}rem`);
         break;
 
         case this.spacing:
-          this.el.style.setProperty('--strawberry-spacing', `${property}rem`);
+          this.el.style.setProperty(this.properties.spacing, `${property}rem`);
+        break;
+
+        case this.textAlign:
+          this.el.style.setProperty(this.properties.textAlign, property);
         break;
       }
     })
   }
 
   private setHeadingLevel() {
+    if(!this.text) {
+      return
+    }
+
     switch(this.headingLevel) {
       case 1:
         return <h1 class="content">{this.text}</h1>
@@ -100,21 +123,21 @@ export class SCHeroBanner {
       case 6:
         return <h6 class="content">{this.text}</h6>
       default:
-        return <p class="content">{this.text}</p>
+        return <h1 class="content">{this.text}</h1>
     }
   }
 
   connectedCallback() {
     this.setPosition(
       this.verticalPosition,
-      '--strawberry-align',
-      ['top', 'middle', 'bottom']
+      this.properties.align,
+      [this.positionValue.top, this.positionValue.middle, this.positionValue.bottom]
     );
 
     this.setPosition(
       this.horizontalPosition,
-      `--strawberry-justify`,
-      ['left', 'middle', 'right']
+      this.properties.justify,
+      [this.positionValue.left, this.positionValue.middle, this.positionValue.right]
     );
 
     this.setBaseStyle();
@@ -124,7 +147,8 @@ export class SCHeroBanner {
     return (
       <Host>
         <div class="container">
-        {this.setHeadingLevel()}
+          {this.setHeadingLevel()}
+          <slot></slot>
         </div>
       </Host>
     );
