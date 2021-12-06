@@ -1,0 +1,46 @@
+{
+  "name": "@strawberrydigital/components",
+  "version": "0.0.2",
+  "description": "Strawberry's collection of components",
+  "main": "dist/index.cjs.js",
+  "module": "dist/custom-elements/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/strawberry-components/strawberry-components.esm.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strawberry/strawberry-components"
+  },
+  "author": {
+    "name": "Strawberry",
+    "url": "https://github.com/strawberry"
+  },
+  "bugs": {
+    "url": "https://github.com/strawberry/strawberry-components/issues"
+  },
+  "homepage": "https://github.com/strawberry/strawberry-components",
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "puppeteer": "^10.0.0"
+  },
+  "license": "MIT"
+}
