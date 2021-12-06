@@ -20,6 +20,9 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface ScDrawer {
+        "drawerName": string;
+    }
     interface ScHeroBanner {
         /**
           * Optional background colour.
@@ -66,6 +69,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLScDrawerElement extends Components.ScDrawer, HTMLStencilElement {
+    }
+    var HTMLScDrawerElement: {
+        prototype: HTMLScDrawerElement;
+        new (): HTMLScDrawerElement;
+    };
     interface HTMLScHeroBannerElement extends Components.ScHeroBanner, HTMLStencilElement {
     }
     var HTMLScHeroBannerElement: {
@@ -74,6 +83,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "sc-drawer": HTMLScDrawerElement;
         "sc-hero-banner": HTMLScHeroBannerElement;
     }
 }
@@ -91,6 +101,9 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
+    }
+    interface ScDrawer {
+        "drawerName"?: string;
     }
     interface ScHeroBanner {
         /**
@@ -132,6 +145,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "sc-drawer": ScDrawer;
         "sc-hero-banner": ScHeroBanner;
     }
 }
@@ -140,6 +154,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "sc-drawer": LocalJSX.ScDrawer & JSXBase.HTMLAttributes<HTMLScDrawerElement>;
             "sc-hero-banner": LocalJSX.ScHeroBanner & JSXBase.HTMLAttributes<HTMLScHeroBannerElement>;
         }
     }

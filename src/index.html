@@ -9,33 +9,36 @@
     <script nomodule src="/build/strawberry-components.js"></script>
   </head>
   <body>
-    <sc-hero-banner
+    <button class="test-drawer" data-drawer-toggle="test-drawer">Open Drawer Test</button>
+
+    <sc-drawer drawer-name="test-drawer">
+
+      <p>Drawer component</p>
+    </sc-drawer>
+
+    <!-- <sc-hero-banner
       vertical-position="top"
       horizontal-position="left"
       text="SC Hero Banner"
       font-size="3"
       heading-level="1"
+      text-colour="green"
     >
-    </sc-hero-banner>
+    </sc-hero-banner> -->
+    <script>
+      const button = document.querySelector('.test-drawer');
 
-    <sc-hero-banner
-      vertical-position="top"
-      horizontal-position="right"
-      text="Component Library"
-      font-size="5"
-      heading-level="2"
-      spacing="3"
-    >
-    </sc-hero-banner>
-
-    <sc-hero-banner
-      vertical-position="center"
-      horizontal-position="center"
-      text="A really long sentence of how things should look if there are many words. A really long sentence of how things should look if there are many words."
-      spacing="3"
-      font-size="0.8"
-      text-align="right"
-    >
-    </sc-hero-banner>
+      button.addEventListener('click', (event) => {
+        button.dispatchEvent(
+          new CustomEvent('drawer:toggle',
+          {
+            bubbles: true,
+            detail: {
+                drawer: button.dataset.drawerToggle,
+            },
+          })
+        );
+      })
+    </script>
   </body>
 </html>
