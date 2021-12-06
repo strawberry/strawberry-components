@@ -20,7 +20,14 @@ export namespace Components {
          */
         "middle": string;
     }
-    interface StrawberryHeroBanner {
+    interface ScHeroBanner {
+        "backgroundColour"?: string;
+        "fontSize"?: string;
+        "headingLevel"?: number;
+        /**
+          * Horizontal position.
+         */
+        "horizontalPosition": string;
         /**
           * Image src.
          */
@@ -29,11 +36,17 @@ export namespace Components {
           * Image Alt Text.
          */
         "imageAlt": string;
+        "padding"?: string;
+        "spacing"?: string;
         /**
           * Hero text.
          */
         "text": string;
-        "vertical_position": string;
+        "textColour"?: string;
+        /**
+          * Vertical position.
+         */
+        "verticalPosition": string;
     }
 }
 declare global {
@@ -43,15 +56,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
-    interface HTMLStrawberryHeroBannerElement extends Components.StrawberryHeroBanner, HTMLStencilElement {
+    interface HTMLScHeroBannerElement extends Components.ScHeroBanner, HTMLStencilElement {
     }
-    var HTMLStrawberryHeroBannerElement: {
-        prototype: HTMLStrawberryHeroBannerElement;
-        new (): HTMLStrawberryHeroBannerElement;
+    var HTMLScHeroBannerElement: {
+        prototype: HTMLScHeroBannerElement;
+        new (): HTMLScHeroBannerElement;
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
-        "strawberry-hero-banner": HTMLStrawberryHeroBannerElement;
+        "sc-hero-banner": HTMLScHeroBannerElement;
     }
 }
 declare namespace LocalJSX {
@@ -69,7 +82,14 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
-    interface StrawberryHeroBanner {
+    interface ScHeroBanner {
+        "backgroundColour"?: string;
+        "fontSize"?: string;
+        "headingLevel"?: number;
+        /**
+          * Horizontal position.
+         */
+        "horizontalPosition"?: string;
         /**
           * Image src.
          */
@@ -78,15 +98,21 @@ declare namespace LocalJSX {
           * Image Alt Text.
          */
         "imageAlt"?: string;
+        "padding"?: string;
+        "spacing"?: string;
         /**
           * Hero text.
          */
         "text"?: string;
-        "vertical_position"?: string;
+        "textColour"?: string;
+        /**
+          * Vertical position.
+         */
+        "verticalPosition"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
-        "strawberry-hero-banner": StrawberryHeroBanner;
+        "sc-hero-banner": ScHeroBanner;
     }
 }
 export { LocalJSX as JSX };
@@ -94,7 +120,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "strawberry-hero-banner": LocalJSX.StrawberryHeroBanner & JSXBase.HTMLAttributes<HTMLStrawberryHeroBannerElement>;
+            "sc-hero-banner": LocalJSX.ScHeroBanner & JSXBase.HTMLAttributes<HTMLScHeroBannerElement>;
         }
     }
 }
