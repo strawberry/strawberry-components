@@ -19,7 +19,7 @@
 | `textColour`         | `text-colour`         | Optional text colour.       | `string` | `undefined` |
 | `verticalPosition`   | `vertical-position`   | Vertical position.          | `string` | `'top'`     |
 
-## CSS variables to override styling
+## CSS API
 
 color: --sc-hero-banner-colour
 background: --sc-hero-banner-background

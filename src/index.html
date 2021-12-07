@@ -7,16 +7,33 @@
 
     <script type="module" src="/build/strawberry-components.esm.js"></script>
     <script nomodule src="/build/strawberry-components.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
-    <button class="test-drawer" data-drawer-toggle="test-drawer">Open Drawer Test</button>
+    <sc-drawer-button drawer-name="test-drawer"></sc-drawer-button>
 
-    <sc-drawer drawer-name="test-drawer">
+    <sc-drawer
+      drawer-name="test-drawer"
+      desktop-width="60"
+      text-colour="black"
+      background-colour="white">
 
-      <p>Drawer component</p>
+      <nav>
+        <ul>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+        </ul>
+      </nav>
     </sc-drawer>
 
-    <!-- <sc-hero-banner
+    <sc-hero-banner
       vertical-position="top"
       horizontal-position="left"
       text="SC Hero Banner"
@@ -24,21 +41,6 @@
       heading-level="1"
       text-colour="green"
     >
-    </sc-hero-banner> -->
-    <script>
-      const button = document.querySelector('.test-drawer');
-
-      button.addEventListener('click', (event) => {
-        button.dispatchEvent(
-          new CustomEvent('drawer:toggle',
-          {
-            bubbles: true,
-            detail: {
-                drawer: button.dataset.drawerToggle,
-            },
-          })
-        );
-      })
-    </script>
+    </sc-hero-banner>
   </body>
 </html>

@@ -21,6 +21,14 @@ export namespace Components {
         "middle": string;
     }
     interface ScDrawer {
+        "backgroundColour"?: string;
+        "buttonText": string;
+        "desktopWidth"?: string;
+        "drawerName": string;
+        "textColour"?: string;
+    }
+    interface ScDrawerButton {
+        "buttonText": string;
         "drawerName": string;
     }
     interface ScHeroBanner {
@@ -75,6 +83,12 @@ declare global {
         prototype: HTMLScDrawerElement;
         new (): HTMLScDrawerElement;
     };
+    interface HTMLScDrawerButtonElement extends Components.ScDrawerButton, HTMLStencilElement {
+    }
+    var HTMLScDrawerButtonElement: {
+        prototype: HTMLScDrawerButtonElement;
+        new (): HTMLScDrawerButtonElement;
+    };
     interface HTMLScHeroBannerElement extends Components.ScHeroBanner, HTMLStencilElement {
     }
     var HTMLScHeroBannerElement: {
@@ -84,6 +98,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "sc-drawer": HTMLScDrawerElement;
+        "sc-drawer-button": HTMLScDrawerButtonElement;
         "sc-hero-banner": HTMLScHeroBannerElement;
     }
 }
@@ -103,7 +118,17 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface ScDrawer {
+        "backgroundColour"?: string;
+        "buttonText"?: string;
+        "desktopWidth"?: string;
         "drawerName"?: string;
+        "onSc:drawer:toggle"?: (event: CustomEvent<any>) => void;
+        "textColour"?: string;
+    }
+    interface ScDrawerButton {
+        "buttonText"?: string;
+        "drawerName"?: string;
+        "onSc:drawer:toggle"?: (event: CustomEvent<any>) => void;
     }
     interface ScHeroBanner {
         /**
@@ -146,6 +171,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "my-component": MyComponent;
         "sc-drawer": ScDrawer;
+        "sc-drawer-button": ScDrawerButton;
         "sc-hero-banner": ScHeroBanner;
     }
 }
@@ -155,6 +181,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "sc-drawer": LocalJSX.ScDrawer & JSXBase.HTMLAttributes<HTMLScDrawerElement>;
+            "sc-drawer-button": LocalJSX.ScDrawerButton & JSXBase.HTMLAttributes<HTMLScDrawerButtonElement>;
             "sc-hero-banner": LocalJSX.ScHeroBanner & JSXBase.HTMLAttributes<HTMLScHeroBannerElement>;
         }
     }
