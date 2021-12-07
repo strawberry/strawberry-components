@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  --sc-drawer-desktop-width: 40%;
+  --sc-drawer-mobile-width: 100%;
+  --sc-drawer-background: black;
+  --sc-drawer-transition: all ease-in-out 300ms;
+  --sc-drawer-colour: white;
+}
+
+:host .container {
+  background: var(--sc-drawer-background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--sc-drawer-mobile-width);
+  height: 100%;
+  transform: translateX(-100%);
+  transition: var(--sc-drawer-transition);
+  color: var(--sc-drawer-colour);
+  z-index: 1000;
+}
+
+:host .container[data-state="open"] {
+  transform: translateX(0%);
+}
+
+@media screen and (min-width:801px) {
+  :host .container {
+    width: var(--sc-drawer-desktop-width)
+  }
+}

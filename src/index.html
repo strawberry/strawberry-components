@@ -7,34 +7,31 @@
 
     <script type="module" src="/build/strawberry-components.esm.js"></script>
     <script nomodule src="/build/strawberry-components.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
+    <sc-drawer-button drawer-name="test-drawer"></sc-drawer-button>
+
+    <sc-drawer
+      drawer-name="test-drawer"
+      desktop-width="60"
+      text-colour="black"
+      background-colour="white">
+    </sc-drawer>
+
     <sc-hero-banner
       vertical-position="top"
       horizontal-position="left"
       text="SC Hero Banner"
       font-size="3"
       heading-level="1"
-    >
-    </sc-hero-banner>
-
-    <sc-hero-banner
-      vertical-position="top"
-      horizontal-position="right"
-      text="Component Library"
-      font-size="5"
-      heading-level="2"
-      spacing="3"
-    >
-    </sc-hero-banner>
-
-    <sc-hero-banner
-      vertical-position="center"
-      horizontal-position="center"
-      text="A really long sentence of how things should look if there are many words. A really long sentence of how things should look if there are many words."
-      spacing="3"
-      font-size="0.8"
-      text-align="right"
+      text-colour="green"
     >
     </sc-hero-banner>
   </body>
