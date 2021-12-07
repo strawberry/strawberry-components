@@ -19,16 +19,6 @@
 | `textColour`         | `text-colour`         | Optional text colour.       | `string` | `undefined` |
 | `verticalPosition`   | `vertical-position`   | Vertical position.          | `string` | `'top'`     |
 
-## CSS API
-
-color: --sc-hero-banner-colour
-background: --sc-hero-banner-background
-font-size: --sc-hero-banner-font-size
-font: --sc-hero-banner-font
-margin: --sc-hero-banner-spacing
-padding: --sc-hero-banner-padding
-max-width: --sc-hero-banner-max-width
-text-align: --sc-hero-banner-text-align
 
 ----------------------------------------------
 
