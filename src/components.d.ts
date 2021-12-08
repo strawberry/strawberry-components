@@ -74,6 +74,11 @@ export namespace Components {
          */
         "verticalPosition": string;
     }
+    interface ScProductCard {
+        "price": string;
+        "productTitle": string;
+        "url": string;
+    }
     interface ScQuantitySelector {
         "label": string;
         "maximum": number;
@@ -111,6 +116,12 @@ declare global {
         prototype: HTMLScHeroBannerElement;
         new (): HTMLScHeroBannerElement;
     };
+    interface HTMLScProductCardElement extends Components.ScProductCard, HTMLStencilElement {
+    }
+    var HTMLScProductCardElement: {
+        prototype: HTMLScProductCardElement;
+        new (): HTMLScProductCardElement;
+    };
     interface HTMLScQuantitySelectorElement extends Components.ScQuantitySelector, HTMLStencilElement {
     }
     var HTMLScQuantitySelectorElement: {
@@ -123,6 +134,7 @@ declare global {
         "sc-drawer": HTMLScDrawerElement;
         "sc-drawer-button": HTMLScDrawerButtonElement;
         "sc-hero-banner": HTMLScHeroBannerElement;
+        "sc-product-card": HTMLScProductCardElement;
         "sc-quantity-selector": HTMLScQuantitySelectorElement;
     }
 }
@@ -198,6 +210,11 @@ declare namespace LocalJSX {
          */
         "verticalPosition"?: string;
     }
+    interface ScProductCard {
+        "price"?: string;
+        "productTitle"?: string;
+        "url"?: string;
+    }
     interface ScQuantitySelector {
         "label"?: string;
         "maximum"?: number;
@@ -209,6 +226,7 @@ declare namespace LocalJSX {
         "sc-drawer": ScDrawer;
         "sc-drawer-button": ScDrawerButton;
         "sc-hero-banner": ScHeroBanner;
+        "sc-product-card": ScProductCard;
         "sc-quantity-selector": ScQuantitySelector;
     }
 }
@@ -221,6 +239,7 @@ declare module "@stencil/core" {
             "sc-drawer": LocalJSX.ScDrawer & JSXBase.HTMLAttributes<HTMLScDrawerElement>;
             "sc-drawer-button": LocalJSX.ScDrawerButton & JSXBase.HTMLAttributes<HTMLScDrawerButtonElement>;
             "sc-hero-banner": LocalJSX.ScHeroBanner & JSXBase.HTMLAttributes<HTMLScHeroBannerElement>;
+            "sc-product-card": LocalJSX.ScProductCard & JSXBase.HTMLAttributes<HTMLScProductCardElement>;
             "sc-quantity-selector": LocalJSX.ScQuantitySelector & JSXBase.HTMLAttributes<HTMLScQuantitySelectorElement>;
         }
     }
