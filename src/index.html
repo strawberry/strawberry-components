@@ -13,17 +13,22 @@
         margin: 0;
         padding: 0;
       }
+
+      body {
+        height: 3000px;
+      }
+
+      sc-drawer-button.test::part(drawer-button) {
+        background: yellow;
+      }
+
+      sc-drawer-button.test1::part(drawer-button) {
+        background: blue;
+      }
     </style>
   </head>
   <body>
-    <sc-drawer-button drawer-name="test-drawer"></sc-drawer-button>
-
-    <sc-drawer
-      drawer-name="test-drawer"
-      desktop-width="60"
-      text-colour="black"
-      background-colour="white">
-    </sc-drawer>
+    <sc-drawer-button class="test" drawer-name="test-drawer"></sc-drawer-button>
 
     <sc-hero-banner
       vertical-position="top"
@@ -34,5 +39,14 @@
       text-colour="green"
     >
     </sc-hero-banner>
+
+    <sc-drawer
+      drawer-name="test-drawer"
+      desktop-width="60"
+      text-colour="white"
+      background-colour="black">
+    </sc-drawer>
+
+    <sc-add-to-cart product-id="12345678" drawer-name="test-drawer"></sc-add-to-cart>
   </body>
 </html>
