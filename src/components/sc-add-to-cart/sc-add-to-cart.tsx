@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, Event, EventEmitter, Prop } from '@stencil/core';
+import { Component, Host, h, Element, Event, EventEmitter, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'sc-add-to-cart',
@@ -8,9 +8,15 @@ import { Component, Host, h, Element, Event, EventEmitter, Prop } from '@stencil
 export class ScAddToCart {
   @Element() el: HTMLElement;
 
+
+
   @Prop() productId: number;
 
   @Prop() buttonText: string = 'Add to Cart';
+
+  @Prop() quantitySelector: boolean = false;
+
+  @State() quantity: number = 1;
 
   @Event({
     eventName: 'sc:add-to-cart:emitted',
@@ -19,11 +25,21 @@ export class ScAddToCart {
     bubbles: true,
   }) scAddToCartEmiitted: EventEmitter;
 
+  componentDidLoad() {
+
+  }
+
   handleButton(event) {
+
+    if(this.quantitySelector) {
+      const selector = document.querySelector('sc-quantity-selector');
+      this.quantity = Number(selector.dataset.quantity);
+    }
+
     if(!event.defaultPrevented && this.productId) {
       this.scAddToCartEmiitted.emit({
         productId: this.productId,
-        quantity: 1
+        quantity: this.quantity
       });
     }
   }

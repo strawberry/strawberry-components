@@ -1,0 +1,21 @@
+:host {
+  display: block;
+
+}
+
+:host .container {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin: 10px;
+}
+
+:host .button {
+  width: 20px;
+  margin: 0 5px;
+}
+
+:host .quantity {
+  font-family: inherit;
+  margin: 0 5px;
+}
