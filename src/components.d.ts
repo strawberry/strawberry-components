@@ -23,6 +23,7 @@ export namespace Components {
     interface ScAddToCart {
         "buttonText": string;
         "productId": number;
+        "quantitySelector": boolean;
     }
     interface ScDrawer {
         "backgroundColour"?: string;
@@ -73,6 +74,11 @@ export namespace Components {
          */
         "verticalPosition": string;
     }
+    interface ScQuantitySelector {
+        "label": string;
+        "maximum": number;
+        "type": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -105,12 +111,19 @@ declare global {
         prototype: HTMLScHeroBannerElement;
         new (): HTMLScHeroBannerElement;
     };
+    interface HTMLScQuantitySelectorElement extends Components.ScQuantitySelector, HTMLStencilElement {
+    }
+    var HTMLScQuantitySelectorElement: {
+        prototype: HTMLScQuantitySelectorElement;
+        new (): HTMLScQuantitySelectorElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "sc-add-to-cart": HTMLScAddToCartElement;
         "sc-drawer": HTMLScDrawerElement;
         "sc-drawer-button": HTMLScDrawerButtonElement;
         "sc-hero-banner": HTMLScHeroBannerElement;
+        "sc-quantity-selector": HTMLScQuantitySelectorElement;
     }
 }
 declare namespace LocalJSX {
@@ -132,6 +145,7 @@ declare namespace LocalJSX {
         "buttonText"?: string;
         "onSc:add-to-cart:emitted"?: (event: CustomEvent<any>) => void;
         "productId"?: number;
+        "quantitySelector"?: boolean;
     }
     interface ScDrawer {
         "backgroundColour"?: string;
@@ -184,12 +198,18 @@ declare namespace LocalJSX {
          */
         "verticalPosition"?: string;
     }
+    interface ScQuantitySelector {
+        "label"?: string;
+        "maximum"?: number;
+        "type"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "sc-add-to-cart": ScAddToCart;
         "sc-drawer": ScDrawer;
         "sc-drawer-button": ScDrawerButton;
         "sc-hero-banner": ScHeroBanner;
+        "sc-quantity-selector": ScQuantitySelector;
     }
 }
 export { LocalJSX as JSX };
@@ -201,6 +221,7 @@ declare module "@stencil/core" {
             "sc-drawer": LocalJSX.ScDrawer & JSXBase.HTMLAttributes<HTMLScDrawerElement>;
             "sc-drawer-button": LocalJSX.ScDrawerButton & JSXBase.HTMLAttributes<HTMLScDrawerButtonElement>;
             "sc-hero-banner": LocalJSX.ScHeroBanner & JSXBase.HTMLAttributes<HTMLScHeroBannerElement>;
+            "sc-quantity-selector": LocalJSX.ScQuantitySelector & JSXBase.HTMLAttributes<HTMLScQuantitySelectorElement>;
         }
     }
 }
