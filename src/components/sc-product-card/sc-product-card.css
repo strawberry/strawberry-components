@@ -1,15 +1,12 @@
 :host {
   display: block;
   --background-colour: #fafafa;
-  max-width: 200px;
 }
 
 :host .container {
   display: flex;
   flex-direction: column;
   background: var(--background-colour);
-  width: 100%;
-  height: 100%;
   padding: 2rem;
   font-family: inherit;
 }
