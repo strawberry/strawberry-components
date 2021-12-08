@@ -20,6 +20,10 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface ScAddToCart {
+        "buttonText": string;
+        "productId": number;
+    }
     interface ScDrawer {
         "backgroundColour"?: string;
         "buttonText": string;
@@ -77,6 +81,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLScAddToCartElement extends Components.ScAddToCart, HTMLStencilElement {
+    }
+    var HTMLScAddToCartElement: {
+        prototype: HTMLScAddToCartElement;
+        new (): HTMLScAddToCartElement;
+    };
     interface HTMLScDrawerElement extends Components.ScDrawer, HTMLStencilElement {
     }
     var HTMLScDrawerElement: {
@@ -97,6 +107,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "sc-add-to-cart": HTMLScAddToCartElement;
         "sc-drawer": HTMLScDrawerElement;
         "sc-drawer-button": HTMLScDrawerButtonElement;
         "sc-hero-banner": HTMLScHeroBannerElement;
@@ -116,6 +127,11 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
+    }
+    interface ScAddToCart {
+        "buttonText"?: string;
+        "onSc:add-to-cart:emitted"?: (event: CustomEvent<any>) => void;
+        "productId"?: number;
     }
     interface ScDrawer {
         "backgroundColour"?: string;
@@ -170,6 +186,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "sc-add-to-cart": ScAddToCart;
         "sc-drawer": ScDrawer;
         "sc-drawer-button": ScDrawerButton;
         "sc-hero-banner": ScHeroBanner;
@@ -180,6 +197,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "sc-add-to-cart": LocalJSX.ScAddToCart & JSXBase.HTMLAttributes<HTMLScAddToCartElement>;
             "sc-drawer": LocalJSX.ScDrawer & JSXBase.HTMLAttributes<HTMLScDrawerElement>;
             "sc-drawer-button": LocalJSX.ScDrawerButton & JSXBase.HTMLAttributes<HTMLScDrawerButtonElement>;
             "sc-hero-banner": LocalJSX.ScHeroBanner & JSXBase.HTMLAttributes<HTMLScHeroBannerElement>;
