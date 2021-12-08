@@ -16,7 +16,7 @@
 
       body {
         height: 3000px;
-        font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       }
 
       sc-drawer-button.test::part(drawer-button) {
@@ -51,5 +51,9 @@
     <sc-add-to-cart product-id="12345678" quantity-selector="false"></sc-add-to-cart>
 
     <sc-quantity-selector type="select" maximum="100"></sc-quantity-selector>
+
+    <sc-product-card product-title="name" price="100" url="https://google.com">
+      <img slot="image" src="https://images.unsplash.com/photo-1638921713625-1ebe8513f279?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1256&h=1256&q=80" alt="">
+    </sc-product-card>
   </body>
 </html>
